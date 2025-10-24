@@ -1,0 +1,82 @@
+; Creates goals for Analemma mission. Run this from Dromed: "run_cmd_script miss20_goals"
+
+; First make sure all goals are reset.
+run_cmd_script delete_goals
+
+; These are just here for easy copy and paste.
+;quest_create_mis goal_state_Z, 0
+;quest_create_mis goal_visible_Z, 0
+;quest_create_mis goal_reverse_Z, 0
+;quest_create_mis goal_type_Z, 0
+;quest_create_mis goal_target_Z, 0
+;quest_create_mis goal_irreversible_Z, 0
+;quest_create_mis goal_final_Z, 0
+;quest_create_mis goal_max_diff_Z, 0
+;quest_create_mis goal_min_diff_Z, 0
+;quest_create_mis goal_loot_Z, 0
+;quest_create_mis goal_gold_Z, 0
+;quest_create_mis goal_gems_Z, 0
+;quest_create_mis goal_goods_Z, 0
+;quest_create_mis goal_special_Z, 0
+
+; 0: DeliverMcGuffin
+quest_create_mis goal_state_0, 0
+quest_create_mis goal_visible_0, 1
+
+; 1: DontBeStupid
+quest_create_mis goal_state_1, 0
+quest_create_mis goal_visible_1, 1
+
+; 2: LightTheBeacons
+quest_create_mis goal_state_2, 0
+quest_create_mis goal_visible_2, 0
+
+; 3: LootNormal
+quest_create_mis goal_state_3, 0
+quest_create_mis goal_visible_3, 0
+quest_create_mis goal_type_3, 3
+quest_create_mis goal_loot_3, 1000
+quest_create_mis goal_min_diff_3, 0
+quest_create_mis goal_max_diff_3, 0
+
+; 4: LootHard
+quest_create_mis goal_state_4, 0
+quest_create_mis goal_visible_4, 0
+quest_create_mis goal_type_4, 3
+quest_create_mis goal_loot_4, 2000
+quest_create_mis goal_min_diff_4, 1
+quest_create_mis goal_max_diff_4, 1
+
+; 5: LootExpert
+quest_create_mis goal_state_5, 0
+quest_create_mis goal_visible_5, 0
+quest_create_mis goal_type_5, 3
+quest_create_mis goal_loot_5, 3000
+quest_create_mis goal_min_diff_5, 2
+quest_create_mis goal_max_diff_5, 2
+
+; 6: DontKillBystanders (Hard)
+quest_create_mis goal_state_6, 0
+quest_create_mis goal_visible_6, 0
+quest_create_mis goal_type_6, 2
+quest_create_mis goal_reverse_6, 1
+; This is the bystander archetype
+quest_create_mis goal_target_6, -1325
+quest_create_mis goal_min_diff_6, 1
+quest_create_mis goal_max_diff_6, 1
+
+; 7: DontKillHumans (Expert)
+quest_create_mis goal_state_7, 0
+quest_create_mis goal_visible_7, 0
+quest_create_mis goal_type_7, 2
+quest_create_mis goal_reverse_7, 1
+; This is the Human archetype
+quest_create_mis goal_target_7, -14
+quest_create_mis goal_min_diff_7, 2
+quest_create_mis goal_max_diff_7, 2
+
+; 8: LeaveTheMansion
+quest_create_mis goal_state_8, 0
+quest_create_mis goal_visible_8, 1
+
+mprint Goals updated

@@ -1,0 +1,40 @@
+// TODO: figure out what the McGuffin and Lord Whatsisface are actually called!
+
+// 0: DeliverMcGuffin
+fiction_0: "It's time to get paid. Lord Whatsisface asked you to bring the McGuffin to him in his mansion. The butler will lead you to him."
+text_0: "Bring the McGuffin to Lord Whatsisface."
+
+// 1: DontBeStupid
+fiction_1: "Lord Whatsisface is a valuable client. Don't upset his guards, and keep your fingers to yourself while you're here."
+text_1: "Don't do anything stupid."
+
+// 2: LightTheBeacons
+fiction_2: "(not visible at mission start)"
+text_2: "Rohan needs to call for aid. Light the beacons! [TODO]"
+
+// 3: LootNormal
+fiction_3: "(not visible at mission start)"
+text_3: "Normal loot goal: 1000 [TODO]"
+
+// 4: LootHard
+fiction_4: "(not visible at mission start)"
+text_4: "Hard loot goal: 2000 [TODO]"
+
+// 5: LootExpert
+fiction_5: "(not visible at mission start)"
+text_5: "Expert loot goal: 3000 [TODO]"
+
+// 6: DontKillBystanders
+fiction_6: "(not visible at mission start)"
+text_6: "Don't kill any unarmed people. [TODO]"
+
+// 7: DontKillHumans
+fiction_7: "(not visible at mission start)"
+text_7: "Don't kill anyone."
+
+// TODO: The only reason this one really exists for now is to prevent the
+//       mission completing when DeliverMcGuffin is ticked off and DontBeStupid
+//       is hidden. We might not need it eventually.
+// 8: LeaveTheMansion
+fiction_8: "When you've made the delivery and received payment, leave the mansion."
+text_8: "Leave the mansion when everything is done."
