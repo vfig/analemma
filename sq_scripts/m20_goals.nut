@@ -24,6 +24,9 @@ local Goal = {
     Complete = function(goal) {
         Quest.Set("goal_state_" + goal, 1);
     }
+    Reset = function(goal) {
+        Quest.Set("goal_state_" + goal, 0);
+    }
     IsCancelled = function(goal) {
         return (Quest.Get("goal_state_" + goal) == 2);
     }
@@ -151,10 +154,6 @@ class GoalDeliverMcGuffin extends SqRootScript
     }
 }
 
-
-/* -------- Silly player -------- */
-
-
 class GoalDontBeStupid extends SqRootScript
 {
     /* Put this on M-DontBeStupid, which should go on all
@@ -220,4 +219,20 @@ class GoalDontBeStupid extends SqRootScript
             Fail();
         }
     }
+}
+
+
+/* -------- Lighting the Beacons -------- */
+
+
+// Send this a TurnOn from a RequireAllTrap when all the beacons are litten.
+class GoalLightTheBeacons extends SqRootScript
+{
+    function OnTurnOn() {
+        Goal.Complete(eGoals.kLightTheBeacons);
+    }
+
+    function OnTurnOff() {
+        Goal.Reset(eGoals.kLightTheBeacons);
+    }    
 }
