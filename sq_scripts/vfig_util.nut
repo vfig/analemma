@@ -399,7 +399,7 @@ class EditorOnlyProcessDifficulty extends SqRootScript
     */
 
     function OnSim() {
-        if (IsEditor()) {
+        if (IsEditor() && message().starting) {
             local diff = -1;
             if ("Difficulty" in userparams()) {
                 diff = userparams().Difficulty;
