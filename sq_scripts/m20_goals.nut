@@ -124,7 +124,20 @@ class GoalDeliverMcGuffin extends SqRootScript
        so, but not sure... */
 
     function Activate() {
-        if (! Goal.IsFailed(eGoals.kDontBeStupid)) {
+        if (! Goal.IsComplete(eGoals.kDeliverMcGuffin)
+        && ! Goal.IsFailed(eGoals.kDontBeStupid)) {
+            Goal.Complete(eGoals.kDeliverMcGuffin);
+            SetOneShotTimer("NowLightTheBeacons", 3.0);
+        }
+    }
+
+    function OnFrobWorldEnd() {
+        // TODO: for the temp button.
+        Activate();
+    }
+
+    function OnTimer() {
+        if (message().name=="NowLightTheBeacons") {
             Goal.Hide(eGoals.kDontBeStupid);
             Goal.Show(eGoals.kLightTheBeacons);
             Goal.Show(eGoals.kLootNormal);
@@ -132,13 +145,7 @@ class GoalDeliverMcGuffin extends SqRootScript
             Goal.Show(eGoals.kLootExpert);
             Goal.Show(eGoals.kDontKillBystanders);
             Goal.Show(eGoals.kDontKillHumans);
-            Goal.Complete(eGoals.kDeliverMcGuffin);
         }
-    }
-
-    function OnFrobWorldEnd() {
-        // TODO: for the temp button.
-        Activate();
     }
 
     function OnObjRoomTransit() {
