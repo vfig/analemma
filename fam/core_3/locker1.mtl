@@ -1,0 +1,8 @@
+render_material_only 1
+
+render_pass
+{
+    texture tex\miss2sky
+    uv_source PROJECTION
+    uv_mod SCALE 1.0 1.0
+}
