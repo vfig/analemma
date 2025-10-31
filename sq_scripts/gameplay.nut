@@ -102,3 +102,56 @@ class GlassContainer extends SqRootScript
         }
     }
 }
+
+class GarrettDoll extends SqRootScript
+{
+    function OnTurnOn() {
+        // Make sure we can't activate before the lid gets opened,
+        // cause otherwise frobbing through the wall is possible. :(
+        if (! IsDataSet("IsEnabled")) {
+            SetData("IsEnabled", 1);
+        }
+    }
+
+    function OnWorldSelect() {
+        if (IsDataSet("IsEnabled")) {
+            // Only activate the first time we are focused, as a surprise!
+            if (! IsDataSet("HasActivated")) {
+                SetData("HasActivated", 1);
+                SetOneShotTimer("GarrettDollView", 0.5);
+            }
+        }
+    }
+
+    function OnTimer() {
+        if (message().name=="GarrettDollView") {
+            Link.BroadcastOnAllLinks(self, "TurnOn", "ControlDevice");
+            // Become pick-upable.
+            SetProperty("FrobInfo", "World Action", 0x1); // Move
+            // Make other things pick-upable.
+            foreach (link in Link.GetAll("ScriptParams", self)) {
+                if (LinkTools.LinkGetData(link, "")=="FrobEnable") {
+                    Object.RemoveMetaProperty(LinkDest(link), "FrobInert");
+                }
+            }
+        }
+    }
+}
+
+class CameraView extends SqRootScript
+{
+    function OnTurnOn() {
+        Camera.DynamicAttach(self);
+    }
+
+    function OnCameraAttach() {
+    }
+
+    function OnCameraDetach() {
+    }
+
+
+    // function OnMessage() {
+    //     print("DollView: "+message().message);
+    // }
+}
