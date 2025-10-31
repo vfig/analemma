@@ -145,13 +145,21 @@ class CameraView extends SqRootScript
     }
 
     function OnCameraAttach() {
+        Link.BroadcastOnAllLinks(self, "TurnOn", "ControlDevice");
     }
 
     function OnCameraDetach() {
+        Link.BroadcastOnAllLinks(self, "TurnOff", "ControlDevice");
+    }
+}
+
+class ToggleNotRendered extends SqRootScript
+{
+    function OnTurnOn() {
+        SetProperty("RenderType", 0); // Normal
     }
 
-
-    // function OnMessage() {
-    //     print("DollView: "+message().message);
-    // }
+    function OnTurnOff() {
+        SetProperty("RenderType", 1); // Not Rendered
+    }
 }

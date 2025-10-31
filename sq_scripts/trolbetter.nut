@@ -10,4 +10,13 @@ class TrolBetter extends SqRootScript
         local roll = Data.RandInt(1, sides);
         Reply(roll>=min);
     }
+
+    // Use a Script Message step to randomise the continuation of a pseudoscript.
+    //     Arg 1: Randomize
+    //     Arg 2: <% of success> (default 50)
+    function OnRandomize() {
+        local percent = (message().data==null? 50 : message().data.tointeger());
+        local roll = Data.RandInt(1, 100);
+        Reply(roll<=percent);
+    }
 }
