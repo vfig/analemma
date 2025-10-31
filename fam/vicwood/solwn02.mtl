@@ -1,8 +1,16 @@
+render_material_only 1
+
 render_pass
 {
     texture tex\miss2sky
-    alpha 0.9
-    blend SRC_ALPHA ONE
     uv_source PROJECTION
     uv_mod SCALE 1.0 1.0
+}
+
+render_pass
+{
+    texture tex\solwn02t
+    alpha 1.0
+    blend SRC_ALPHA INV_SRC_ALPHA
+    shaded 1
 }
